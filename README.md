@@ -28,7 +28,7 @@
 ## Функции
 
 
-# account_from_username(username, dict_view=False)
+### account_from_username(username, dict_view=False)
 Аргументы:
    1) username - имя пользователя
    2) dict_view - если указано True, возвращает информацию в виде словаря
@@ -36,7 +36,7 @@
 Возвращает:
   1) Объект Profile (см. выше) или словарь, если указано dict_view=True
 
-# get_posts(user_id, max_count=100, dict_view=False)
+### get_posts(user_id, max_count=100, dict_view=False)
 Аргументы:
   1) user_id - айди пользователя
   2) max_count - максимальное кол-во постов
@@ -45,7 +45,7 @@
 Возвращает:
   1) Список с объектами Post (см. выше) или словарь, если указано dict_view=True
 
-# retrieve_by_username(username, max_count=100)
+### retrieve_by_username(username, max_count=100)
 Аргументы:
   1) username - имя пользователя
   2) max_count - максимальное кол-во постов
@@ -54,7 +54,7 @@
   1) Словарь с информацией о пользователе и постами
 
 
-# Примеры
+## Примеры
 ```
 from twitter import Twitter_parser
 
