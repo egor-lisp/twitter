@@ -69,3 +69,15 @@ for post in data['posts']:
 		print(post['url'])
 
 ```
+
+```
+from twitter import Twitter_parser
+
+parser = Twitter_parser()
+user = parser.account_from_username('advOrrie007')
+
+print(user.description)
+print(user.followers_count)
+print(user.following_count)
+
+```
