@@ -1,9 +1,9 @@
 # Мини-документация по использованию парсера в коде
 
-# Объекты:
+## Объекты:
 
 
-# Profile
+### Profile
 Параметры:
   1) user_id (int) - айди пользователя
   2) is_ava (bool) - есть ли аватарка у пользователя
@@ -12,7 +12,7 @@
   5) followers_count (int) - число подписчиков
   6) following_count (int) - число подписок
   
-# Post
+### Post
 Параметры:
   1) url (str) - ссылка на пост
   2) created_time (str) - время и дата публикации поста
@@ -28,7 +28,7 @@
 # Функции
 
 
-# account_from_username(username, dict_view=False)
+## account_from_username(username, dict_view=False)
 Аргументы:
    1) username - имя пользователя
    2) dict_view - если указано True, возвращает информацию в виде словаря
@@ -36,7 +36,7 @@
 Возвращает:
   1) Объект Profile (см. выше) или словарь, если указано dict_view=True
 
-# get_posts(user_id, max_count=100, dict_view=False)
+## get_posts(user_id, max_count=100, dict_view=False)
 Аргументы:
   1) user_id - айди пользователя
   2) max_count - максимальное кол-во постов
@@ -45,10 +45,26 @@
 Возвращает:
   1) Список с объектами Post (см. выше) или словарь, если указано dict_view=True
 
-# retrieve_by_username(username, max_count=100)
+## retrieve_by_username(username, max_count=100)
 Аргументы:
   1) username - имя пользователя
   2) max_count - максимальное кол-во постов
 
 Возвращает:
   1) Словарь с информацией о пользователе и постами
+
+
+# Примеры
+```
+from twitter import Twitter_parser
+
+parser = Twitter_parser()
+data = parser.retrieve_by_username('advOrrie007', max_count=10)
+
+print(data['user]['description'])
+for post in data['posts]:
+  post_text = post['text']
+  if 'key_word' in post_text:
+    print(post['url'])
+
+```
