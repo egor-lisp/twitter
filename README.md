@@ -64,7 +64,6 @@ data = parser.retrieve_by_username('advOrrie007', max_count=10)
 print(data['user']['description'])
 
 for post in data['posts']:
-
 	post_text = post['text']
 
 	if 'h' in post_text:
