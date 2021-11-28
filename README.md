@@ -61,10 +61,11 @@ from twitter import Twitter_parser
 parser = Twitter_parser()
 data = parser.retrieve_by_username('advOrrie007', max_count=10)
 
-print(data['user]['description'])
-for post in data['posts]:
-  post_text = post['text']
-  if 'key_word' in post_text:
-    print(post['url'])
+print(data['user']['description'])
+
+for post in data['posts']:
+	post_text = post['text']
+	if 'key_word' in post_text:
+		print(post['url'])
 
 ```
