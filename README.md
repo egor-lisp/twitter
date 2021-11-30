@@ -56,7 +56,7 @@
 
 ## Примеры
 ```
-from twitter import Twitter_parser
+from twitter_parser import Twitter_parser
 
 parser = Twitter_parser()
 data = parser.retrieve_by_username('advOrrie007', max_count=10)
@@ -72,7 +72,7 @@ for post in data['posts']:
 ```
 
 ```
-from twitter import Twitter_parser
+from twitter_parser import Twitter_parser
 
 parser = Twitter_parser()
 user = parser.account_from_username('advOrrie007')
