@@ -1,6 +1,6 @@
 import requests
-from twit_manage import headers
-from twitter_api import Twitter_api
+from twitter_parser.twit_manage import headers
+from twitter_parser.twitter_api import Twitter_api
 
 
 class Profile():
