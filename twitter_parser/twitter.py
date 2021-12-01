@@ -85,9 +85,10 @@ class Twitter_parser():
 
         return profile
 
-    def get_post_info(self, post_id, dict_view=False):
+    def get_post_info(self, url, dict_view=False):
         post = Post()
-
+        
+        post_id = self.post_id_by_url(url)
         params = self.api.get_post_info_params(post_id)
         response = requests.get(
             self.api.post_info_url,
