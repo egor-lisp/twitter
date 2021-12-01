@@ -6,12 +6,14 @@ from twitter_parser.twitter_api import Twitter_api
 class Profile():
 
     def __init__(self):
+        self.url = None
         self.user_id = None
         self.is_ava = None
         self.created_time = None
         self.description = None
         self.followers_count = None
         self.following_count = None
+        self.posts_count = None
 
 class Post():
 
@@ -60,12 +62,14 @@ class Twitter_parser():
 
         user = json['data']['user']['result']['legacy']
 
+        profile.url = 'https://twitter.com/'+username
         profile.user_id = json['data']['user']['result']['rest_id']
         profile.is_ava = not user['default_profile_image']
         profile.created_time = user['created_at']
         profile.description = user['description']
         profile.followers_count = user['followers_count']
         profile.following_count = user['friends_count']
+        profile.posts_count = user['statuses_count']
 
         if dict_view:
             profile = self.dict_from_class(profile)
