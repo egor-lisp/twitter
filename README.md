@@ -83,6 +83,18 @@ print(user.following_count)
 
 ```
 
+```
+from twitter_parser.twitter import Twitter_parser
+
+parser = Twitter_parser()
+
+url = 'https://twitter.com/mnogodene/status/1466015032215543809'
+data = parser.get_post_info(url, dict_view=True)
+
+print(data)
+```
+
+
 ## Описание работы
 1) Функция account_from_username()
 Тут ничего сложного. Просто делает запрос в твиттер, получает json объект. Потом парсит этот объект, и нужные данные запихивает в класс Profile (см. выше)
