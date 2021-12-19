@@ -118,7 +118,6 @@ class Twitter_parser():
         profile.posts_count = user['statuses_count']
 
         # Ссылка на сайт
-        profile.site_url = ''
         entities = user['entities']
         if 'url' in entities.keys():
             url = entities['url']['urls'][0]['expanded_url']
