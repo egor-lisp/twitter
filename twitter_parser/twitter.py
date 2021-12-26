@@ -18,6 +18,7 @@ class Profile():
         self.followers_count = None
         self.following_count = None
         self.posts_count = None
+        self.pinned_post_id = None
 
 class Post():
 
@@ -116,6 +117,7 @@ class Twitter_parser():
         profile.followers_count = user['followers_count']
         profile.following_count = user['friends_count']
         profile.posts_count = user['statuses_count']
+        profile.pinned_post_id = user['pinned_tweet_ids_str'][0]
 
         # Ссылка на сайт
         entities = user['entities']
@@ -257,5 +259,9 @@ class Twitter_parser():
         data['posts'] = self.get_posts(
             data['user']['user_id'],
             max_count=max_count, dict_view=True)
+        # Инфу о закрепленном посте
+        if data['user']['pinned_post_id']:
+            pinned_post = self.get_post_info('https://twitter.com/sybaba99/status/'+data['user']['pinned_post_id'])
+            data['posts']['pinned_post'] = pinned_post
 
         return data
