@@ -11,6 +11,8 @@
   4) description (str) - описание аккаунта
   5) followers_count (int) - число подписчиков
   6) following_count (int) - число подписок
+  7) pinned_post_id (str) - айди закрепленного твита. Если такого нет, None
+  8) pinned_post (Post) - информация о закрепленном твите
   
 ### Post
 Параметры:
