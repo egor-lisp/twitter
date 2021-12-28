@@ -142,8 +142,11 @@ class Twitter_parser():
         response = self.smart_get_request(self.api.post_info_url,
             params=params)
         json = response.json()
-
-        block_info = json['data']['threaded_conversation_with_injections']['instructions'][0]['entries'][0]['content']['itemContent']['tweet_results']['result']
+        
+        try:
+            block_info = json['data']['threaded_conversation_with_injections']['instructions'][0]['entries'][0]['content']['itemContent']['tweet_results']['result']
+        except KeyError:
+            continue
         content = block_info['legacy']
 
         username = block_info['core']['user_results']['result']['legacy']['screen_name']
