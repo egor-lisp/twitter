@@ -150,8 +150,10 @@ class Twitter_parser():
         if 'data' not in json:
             post.status = 'missing'
             return self.dict_from_class(post)
-
-        block_info = json['data']['threaded_conversation_with_injections']['instructions'][0]['entries'][0]['content']['itemContent']['tweet_results']['result']
+        try:
+            block_info = json['data']['threaded_conversation_with_injections']['instructions'][0]['entries'][0]['content']['itemContent']['tweet_results']['result']
+        except:
+            return {}
         content = block_info['legacy']
 
         username = block_info['core']['user_results']['result']['legacy']['screen_name']
