@@ -153,7 +153,9 @@ class Twitter_parser():
         try:
             block_info = json['data']['threaded_conversation_with_injections']['instructions'][0]['entries'][0]['content']['itemContent']['tweet_results']['result']
         except:
-            return {}
+            post.status = 'missing'
+            return self.dict_from_class(post)
+
         content = block_info['legacy']
 
         username = block_info['core']['user_results']['result']['legacy']['screen_name']
