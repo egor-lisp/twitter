@@ -19,6 +19,7 @@ class Profile():
         self.following_count = None
         self.posts_count = None
         self.pinned_post_id = None
+        self.verified = None
 
 class Post():
 
@@ -120,6 +121,7 @@ class Twitter_parser():
         profile.followers_count = user['followers_count']
         profile.following_count = user['friends_count']
         profile.posts_count = user['statuses_count']
+        profile.verified = user['verified']
         # Закрепленный пост
         pinned_posts = user['pinned_tweet_ids_str']
         if len(pinned_posts) == 1:
