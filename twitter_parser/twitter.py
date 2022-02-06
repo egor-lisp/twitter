@@ -170,8 +170,8 @@ class Twitter_parser():
         post.comment_count = content['reply_count']
         post.text = content['full_text']
         post.is_quote = content['is_quote_status']
-        if post.is_quote:
-            post.quote_post_url = content['quoted_status_permalink']['expanded']
+#         if post.is_quote:
+#             post.quote_post_url = content['quoted_status_permalink']['expanded']
 
         # Хэштеги
         for h in content['entities']['hashtags']:
